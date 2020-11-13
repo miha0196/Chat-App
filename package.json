@@ -1,0 +1,95 @@
+{
+  "name": "electronchat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "webpack --config webpack.common.js --watch",
+    "build": "webpack --config webpack",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "make:linux": "electron-builder --linux",
+    "make:macos": "electron-builder --mac",
+    "make:win": "electron-builder --win --x64"
+  },
+  "author": "Michael Khakhel",
+  "license": "ISC",
+  "build": {
+    "productName": "Chat App",
+    "appId": "com.hahel.chatapp",
+    "files": [
+      "build/**/*",
+      "assets/**/*",
+      "utils/**/*",
+      "index.html",
+      "splash.html",
+      "splash.css",
+      "main.js",
+      "preload.js"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "assets/images/react_app_logo.png",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 810,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "icon": "assets/images/react_app_logo.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "AppImage"
+      ],
+      "category": "Development"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "bootstrap": "^4.5.2",
+    "dotenv-webpack": "^5.0.0",
+    "electron": "^10.1.5",
+    "electron-reload": "^1.5.0",
+    "webpack": "^5.3.0",
+    "webpack-merge": "^5.4.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@reduxjs/toolkit": "^1.4.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
+    "firebase": "^8.0.0",
+    "moment": "^2.29.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^6.10.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "webpack-cli": "^4.1.0"
+  }
+}
